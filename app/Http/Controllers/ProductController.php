@@ -17,7 +17,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $variants = Variant::with('productVariants')->get();
+        return $variants = Variant::whereHas('productVariants')->get();
+        return $variants = ProductVariant::select('variant','variant_id')->distinct('variant_id')->get();
         return view('products.index', compact('variants'));
     }
 

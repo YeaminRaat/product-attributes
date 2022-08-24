@@ -16,6 +16,9 @@
                     <select name="" id="" class="form-control">
                         @foreach($variants as $variant)
                             <option value="" disabled>{{ $variant->title }}</option>
+                            @foreach($variant->productVariants as $item)
+                                <option value="{{ $item->id }}">{{ $item->variant }}</option>
+                            @endforeach
                         @endforeach
                     </select>
                 </div>
